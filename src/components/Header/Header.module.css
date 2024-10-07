@@ -1,5 +1,9 @@
 .header {
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: baseline;
+}
+
+.logo {
+  color: greenyellow;
 }

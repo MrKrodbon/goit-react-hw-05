@@ -7,9 +7,11 @@ import styles from "../Header/Header.module.css";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <h1>MovieGO</h1>
-      <SearchForm />
+      <h1>
+        Movie<span className={styles.logo}>GO</span>
+      </h1>
       <Menu />
+      <SearchForm />
     </header>
   );
 };
