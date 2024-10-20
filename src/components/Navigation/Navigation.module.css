@@ -1,6 +1,9 @@
-.menu {
+.nav {
   padding: 0;
   display: flex;
+  position: absolute;
+  top: 0;
+  left: 50px;
   list-style: none;
   gap: 30px;
   font-size: 20px;

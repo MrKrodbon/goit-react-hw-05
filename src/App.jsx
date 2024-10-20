@@ -1,35 +1,48 @@
+import css from "./App.module.css";
+
+import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import "./App.css";
-import Header from "./components/Header/Header";
-import MainContent from "./components/MainContent/MainContent";
-import Footer from "./components/Footer/Footer";
-import { fetchMoviesWithTopic } from "./searchMovie-api";
-import MovieList from "./components/MovieList/MovieList";
+import Navigation from "./components/Navigation/Navigation";
+import HomePage from "./pages/HomePage/HomePage";
+import MoviesPage from "./pages/MoviesPage/MoviesPage";
+import MovieDetalsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
+import MovieCast from "./components/MovieCast/MovieCast";
+import MoviesReviews from "./components/MovieReviews/MovieReviews";
+
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+
+import { searchMovie, getTrends } from "./api/movies-api";
 
 function App() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    async function fetchMovies() {
-      const movieData = await fetchMoviesWithTopic("cars", 1);
-      
-      setMovies(movieData => );
-    }
-    fetchMovies();
-
-    
-    console.log(movies);
+    (async () => {
+      const movieData = await getTrends();
+      setMovies(movieData);
+    })();
   }, []);
-  console.log(movies);
 
   return (
-    <>
-      <Header />
-      <MainContent />
-      <MovieList movieData={movies} />
-      <Footer />
-    </>
+    <div>
+      <nav className={css.nav}>
+        <Navigation />
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<HomePage moviesList={movies} />}></Route>
+        <Route path="/movies" element={<MoviesPage />}></Route>
+        <Route
+          path="/movies/:movieId"
+          element={<MovieDetalsPage movieDetails={movies} />}
+        >
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MoviesReviews />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />}></Route>
+      </Routes>
+    </div>
   );
 }
 
