@@ -8,6 +8,9 @@ const Navigation = () => {
   };
   return (
     <div className={css.nav}>
+      <p className={css.logo}>
+        Movie<span className={css.logoSpan}>Go</span>
+      </p>
       <NavLink to="/" className={buildLinkClass}>
         Home
       </NavLink>

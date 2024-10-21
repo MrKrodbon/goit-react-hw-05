@@ -1,10 +1,23 @@
 .nav {
-  padding: 0;
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 50px;
+  left: 0;
+  align-items: baseline;
+  padding-left: 20px;
   list-style: none;
   gap: 30px;
   font-size: 20px;
+  border-bottom: 1px solid gray;
+  width: 100%;
+  z-index: 1000;
+  background-color: black;
+}
+
+.logo {
+  font-size: 30px;
+}
+
+.logoSpan {
+  color: greenyellow;
 }
