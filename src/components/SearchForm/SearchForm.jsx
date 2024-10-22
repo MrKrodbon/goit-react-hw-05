@@ -1,13 +1,21 @@
-import React from "react";
-import styles from "./SearchForm.module.css";
+import React, { useState } from "react";
+import css from "./SearchForm.module.css";
 
-const SearchForm = () => {
-  const handleSubmit = () => {};
+import { searchMovie } from "../../api/movies-api";
+
+const SearchForm = ({ movieList }) => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.target.elements;
+
+    const response = await searchMovie(form.search.value);
+    movieList(response);
+  };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.searchForm}>
-      <input type="text" name="search" className={styles.input} />
-      <button type="button" className={styles.searchBtn}>
+    <form onSubmit={handleSubmit} className={css.searchForm}>
+      <input type="text" name="search" className={css.input} />
+      <button type="submit" className={css.searchBtn}>
         Search
       </button>
     </form>

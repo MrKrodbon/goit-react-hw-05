@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-html,
-body {
+html {
+  padding-top: 100px;
   margin: 0;
 }

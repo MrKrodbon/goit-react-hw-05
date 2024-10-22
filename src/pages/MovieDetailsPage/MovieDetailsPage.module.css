@@ -1,7 +1,11 @@
+.detailsPageWrapper {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 .detailsContainer {
   display: flex;
   gap: 40px;
-  margin-left: 30px;
 }
 
 .descriptionWrapper {
@@ -13,4 +17,12 @@
 .img {
   width: 300px;
   border-radius: 10px;
+}
+
+.li {
+  font-size: 20px;
+}
+
+.backBtn {
+  margin-bottom: 20px;
 }

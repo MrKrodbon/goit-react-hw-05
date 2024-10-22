@@ -1,6 +1,6 @@
-.homePageWrapper {
-  margin-top: 150px;
-}
-
 .mainTitle {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
 }

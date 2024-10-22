@@ -9,6 +9,7 @@
   gap: 30px;
   font-size: 20px;
   border-bottom: 1px solid gray;
+  height: 100px;
   width: 100%;
   z-index: 1000;
   background-color: black;
@@ -16,8 +17,15 @@
 
 .logo {
   font-size: 30px;
+  color: white;
 }
 
 .logoSpan {
   color: greenyellow;
+}
+
+.link:hover,
+.active {
+  color: greenyellow;
+  transition: color 0.3s;
 }
