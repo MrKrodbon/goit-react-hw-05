@@ -1,14 +1,15 @@
 import css from "./CastCard.module.css";
 
+import { POSTER_PATH, DEFAULT_IMG } from "../../constants/constants.js";
+
 const CastCard = ({ actor: { name, profile_path, character } }) => {
   return (
-    <div>
-      <img
-        src={`https://image.tmdb.org/t/p/w500${profile_path}`}
-        className={css.img}
-      />
-      <p>{name}</p>
-      <p>Character: {character}</p>
+    <div className={css.castCardWrapper}>
+      <img src={`${POSTER_PATH}${profile_path}`} className={css.img} />
+      <div className={css.content}>
+        <p>{name}</p>
+        <p>Character: {character}</p>
+      </div>
     </div>
   );
 };

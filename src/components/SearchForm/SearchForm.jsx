@@ -6,10 +6,11 @@ import { searchMovie } from "../../api/movies-api";
 const SearchForm = ({ movieList }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const form = event.target.elements;
+    const form = event.target;
 
-    const response = await searchMovie(form.search.value);
+    const response = await searchMovie(form.elements.search.value);
     movieList(response);
+    form.reset();
   };
 
   return (

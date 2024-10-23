@@ -1,10 +1,16 @@
 .ul {
+  display: flex;
   gap: 20px;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .li {
-  width: 150px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  width: 200px;
   height: 350px;
   object-fit: contain;
+  overflow: hidden;
 }
