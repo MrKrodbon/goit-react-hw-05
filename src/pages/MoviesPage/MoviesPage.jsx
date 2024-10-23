@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SearchForm from "../../components/SearchForm/SearchForm";
 
 import css from "./MoviesPage.module.css";
@@ -9,27 +9,11 @@ const MoviesPage = () => {
   const [movieList, setMovieList] = useState([]);
 
   const location = useLocation();
-  console.log(movieList);
-
-  useEffect(() => {
-    {
-      movieList.length !== 0 &&
-        movieList.map((movie) => (
-          <Link to={`/movies/${movie.id}`} state={location}>
-            <li key={movie.id} className={css.li}>
-              <Movie movie={movie} />
-            </li>
-          </Link>
-        ));
-    }
-  }, []);
 
   return (
     <>
-      <div className={css.movieWrapper}>
-        <div className={css.searchField}>
-          <SearchForm movieList={setMovieList} />
-        </div>
+      <div className={css.searchField}>
+        <SearchForm movieList={setMovieList} />
       </div>
       <div className={css.moviesListWrapper}>
         <ul className={css.ul}>
@@ -41,8 +25,8 @@ const MoviesPage = () => {
             </li>
           ) : (
             movieList.map((movie) => (
-              <Link to={`/movies/${movie.id}`} state={location}>
-                <li key={movie.id} className={css.li}>
+              <Link to={`/movies/${movie.id}`} state={location} key={movie.id}>
+                <li className={css.li}>
                   <Movie movie={movie} />
                 </li>
               </Link>

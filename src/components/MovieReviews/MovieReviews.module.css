@@ -1,0 +1,9 @@
+.motivationContent {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.ul {
+  list-style: none;
+}

@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 import { POSTER_PATH, DEFAULT_IMG } from "../../constants/constants.js";
 
 const TopMoviesList = ({ moviesList }) => {
-  console.log(moviesList);
-
   const [hoveredMovieId, sethoveredMovieId] = useState(null);
   let timeoutId;
 
@@ -22,13 +20,12 @@ const TopMoviesList = ({ moviesList }) => {
     sethoveredMovieId(0);
     clearTimeout(timeoutId);
   };
-  console.log(hoveredMovieId);
 
   return (
     <div>
-      <ul className={css.moviesList}>
+      <ul className={css.ul}>
         {moviesList.map((movie) => (
-          <li key={movie.id} className={css.movie}>
+          <li key={movie.id} className={css.li}>
             <Link to={`/movies/${movie.id}`} key={movie.id}>
               <div
                 className={css.imageContainer}

@@ -1,4 +1,4 @@
-.moviesList {
+.ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -6,13 +6,14 @@
   list-style: none;
 }
 
-.movie {
-  justify-content: center;
-  border: 1px solid black;
+.li {
+  border: 3px solid white;
+  color: white;
   border-radius: 8px;
   width: 200px;
   min-height: 300px;
   overflow: hidden;
+  background-color: black;
 }
 
 .img {

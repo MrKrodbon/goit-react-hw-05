@@ -2,12 +2,10 @@ import { useEffect, useState } from "react";
 import {
   Link,
   Outlet,
-  replace,
   useLocation,
   useNavigate,
   useParams,
 } from "react-router-dom";
-import axios from "axios";
 import { POSTER_PATH, DEFAULT_IMG } from "../../constants/constants.js";
 
 import css from "./MovieDetailsPage.module.css";
@@ -31,7 +29,6 @@ const MovieDetailsPage = () => {
     const backHref = location.state ?? "/";
 
     navigate(backHref);
-    return movie;
   };
 
   return (
@@ -53,19 +50,22 @@ const MovieDetailsPage = () => {
           <h2>{movie.original_title}</h2>
           <p>Rating: {movie.vote_average}</p>
           <p>Overview: {movie.overview}</p>
-          <p>Popularity: {movie.popularity}</p>
           <p>Release Date: {movie.release_date}</p>
         </div>
       </div>
 
       <div className={css.additionInfoWrapper}>
-        <h2>Addition information</h2>
+        <h2 className={css.additionInfoTitle}>Addition information</h2>
         <ul className={css.ul}>
           <li className={css.li}>
-            <Link to="cast">cast</Link>
+            <Link to="cast" className={css.link}>
+              cast
+            </Link>
           </li>
           <li className={css.li}>
-            <Link to="reviews">reviews</Link>
+            <Link to="reviews" className={css.link}>
+              reviews
+            </Link>
           </li>
         </ul>
         <Outlet />

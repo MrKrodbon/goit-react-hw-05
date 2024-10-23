@@ -1,5 +1,3 @@
-import React from "react";
-
 import { POSTER_PATH } from "../../constants/constants.js";
 
 import css from "./Movie.module.css";
@@ -12,9 +10,9 @@ const Movie = ({
       <img src={`${POSTER_PATH}${poster_path}`} className={css.img} />
 
       <div className={css.contentWrapper}>
-        <p>{title}</p>
-        <p>Rating: {vote_average}</p>
-        <p>Release Date: {release_date}</p>
+        <p className={css.title}>{title}</p>
+        <p>Rating: {Math.round(vote_average)}/10</p>
+        <p className={css.release}>{release_date}</p>
       </div>
     </>
   );

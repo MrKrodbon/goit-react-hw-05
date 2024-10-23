@@ -7,4 +7,9 @@
 html {
   padding-top: 100px;
   margin: 0;
+  background-image: url("./img/top-movies.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }

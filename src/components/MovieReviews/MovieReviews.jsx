@@ -21,7 +21,9 @@ const MovieReviews = () => {
     <div>
       <ul className={css.ul}>
         {reviewArray.length === 0 ? (
-          <p>There is no review... Be the first!</p>
+          <p className={css.motivationContent}>
+            There is no reviews... Be the first!
+          </p>
         ) : (
           reviewArray.map((review) => {
             return (

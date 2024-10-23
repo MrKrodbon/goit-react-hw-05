@@ -1,11 +1,12 @@
 import React from "react";
 
-const ReviewCard = ({ review: { author, content, updated_at } }) => {
+import css from "./ReviewCard.module.css";
+
+const ReviewCard = ({ review: { author, content } }) => {
   return (
-    <div>
-      <h4>{author}</h4>
+    <div className={css.reviewWrapper}>
+      <h4 className={css.author}>{author}</h4>
       <p>{content}</p>
-      <p>{updated_at}</p>
     </div>
   );
 };

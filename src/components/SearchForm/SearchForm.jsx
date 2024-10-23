@@ -15,7 +15,12 @@ const SearchForm = ({ movieList }) => {
 
   return (
     <form onSubmit={handleSubmit} className={css.searchForm}>
-      <input type="text" name="search" className={css.input} />
+      <input
+        type="text"
+        name="search"
+        className={css.input}
+        placeholder="Input the movie name"
+      />
       <button type="submit" className={css.searchBtn}>
         Search
       </button>
