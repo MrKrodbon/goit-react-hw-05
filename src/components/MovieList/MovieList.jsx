@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-import css from "./TopMoviesList.module.css";
+import css from "./MovieList.module.css";
 import { Link } from "react-router-dom";
 
 import { POSTER_PATH, DEFAULT_IMG } from "../../constants/constants.js";
 
-const TopMoviesList = ({ moviesList }) => {
+const MovieList = ({ moviesList }) => {
   const [hoveredMovieId, sethoveredMovieId] = useState(null);
   let timeoutId;
 
@@ -60,4 +60,4 @@ const TopMoviesList = ({ moviesList }) => {
   );
 };
 
-export default TopMoviesList;
+export default MovieList;

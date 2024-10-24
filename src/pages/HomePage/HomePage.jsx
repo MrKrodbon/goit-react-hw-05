@@ -1,6 +1,6 @@
 import css from "./HomePage.module.css";
 
-import TopMoviesList from "../../components/TopMoviesList/TopMoviesList";
+import MovieList from "../../components/MovieList/MovieList";
 
 const HomePage = ({ moviesList }) => {
   return (
@@ -9,7 +9,7 @@ const HomePage = ({ moviesList }) => {
         Millions of movies, shows and people. Explore now!
       </p>
 
-      <TopMoviesList moviesList={moviesList} />
+      <MovieList moviesList={moviesList} />
     </div>
   );
 };

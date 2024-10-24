@@ -1,14 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchForm from "../../components/SearchForm/SearchForm";
 
 import css from "./MoviesPage.module.css";
 import Movie from "../../components/Movie/Movie";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useSearchParams } from "react-router-dom";
+
+import { searchMovie } from "../../api/movies-api";
 
 const MoviesPage = () => {
   const [movieList, setMovieList] = useState([]);
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
+  const queryParams = searchParams.get("query");
+
+  useEffect(() => {
+    async () => {
+      if (searchParams !== null) {
+        const response = await searchMovie(queryParams);
+        setMovieList(response);
+        console.log(response);
+      } else {
+        setSearchParams("");
+      }
+    };
+  }, [searchParams]);
 
   return (
     <>
