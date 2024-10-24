@@ -58,12 +58,12 @@ const MovieDetailsPage = () => {
         <h2 className={css.additionInfoTitle}>Addition information</h2>
         <ul className={css.ul}>
           <li className={css.li}>
-            <Link to="cast" className={css.link}>
+            <Link state={location.state} to="cast" className={css.link}>
               cast
             </Link>
           </li>
           <li className={css.li}>
-            <Link to="reviews" className={css.link}>
+            <Link state={location.state} to="reviews" className={css.link}>
               reviews
             </Link>
           </li>

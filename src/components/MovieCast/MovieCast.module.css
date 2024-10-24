@@ -14,3 +14,9 @@
   object-fit: contain;
   overflow: hidden;
 }
+
+.emptyCastField {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}

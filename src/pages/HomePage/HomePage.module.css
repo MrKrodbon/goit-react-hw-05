@@ -10,3 +10,9 @@
   width: 1000px;
   margin: 40px auto;
 }
+
+.emptyMovieField {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+}

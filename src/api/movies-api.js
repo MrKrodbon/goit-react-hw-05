@@ -69,7 +69,7 @@ export const getMovieById = async (movieId) => {
   }
 };
 
-const getMovieCreditsInstance = axios.create({
+const getMovieCastInstance = axios.create({
   baseURL: "https://api.themoviedb.org/3/movie",
   headers: {
     Authorization: `Bearer ${token}`,
@@ -79,9 +79,9 @@ const getMovieCreditsInstance = axios.create({
   },
 });
 
-export const getMovieCredits = async (movieId) => {
+export const getMovieCast = async (movieId) => {
   try {
-    const response = await getMovieCreditsInstance.get(`/${movieId}/credits`);
+    const response = await getMovieCastInstance.get(`/${movieId}/credits`);
 
     return response.data;
   } catch (error) {

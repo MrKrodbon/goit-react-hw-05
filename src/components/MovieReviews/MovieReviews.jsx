@@ -12,16 +12,22 @@ const MovieReviews = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await getMovieReviews(movieId);
-      setReviewArray(response.results);
+      try {
+        const response = await getMovieReviews(movieId);
+
+        setReviewArray(response.results);
+      } catch (error) {
+        setReviewArray([]);
+        throw new Error("Error of search reviews");
+      }
     })();
-  }, []);
+  }, [movieId]);
 
   return (
     <div>
       <ul className={css.ul}>
         {reviewArray.length === 0 ? (
-          <p className={css.motivationContent}>
+          <p className={css.emptyReviewField}>
             There is no reviews... Be the first!
           </p>
         ) : (

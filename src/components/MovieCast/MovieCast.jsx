@@ -1,18 +1,23 @@
-import React, { act, useEffect, useState } from "react";
-import { getMovieCredits } from "../../api/movies-api";
+import React, { useEffect, useState } from "react";
+import { getMovieCast } from "../../api/movies-api";
 import { useParams } from "react-router-dom";
 import CastCard from "../CastCard/CastCard";
 
-import css from "./MovieCredits.module.css";
+import css from "./MovieCast.module.css";
 
-const MovieCredits = () => {
+const MovieCast = () => {
   const { movieId } = useParams();
   const [castArray, setCastArray] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const response = await getMovieCredits(movieId);
-      setCastArray(response.cast);
+      try {
+        const response = await getMovieCast(movieId);
+        setCastArray(response.cast);
+      } catch (error) {
+        setCastArray([]);
+        throw new Error("Error of search actors");
+      }
     })();
   }, []);
 
@@ -20,7 +25,9 @@ const MovieCredits = () => {
     <div>
       <ul className={css.ul}>
         {castArray.length === 0 ? (
-          <p>There is something empty</p>
+          <p className={css.emptyCastField}>
+            There is no information about actors
+          </p>
         ) : (
           castArray.map((actor) => {
             return (
@@ -35,4 +42,4 @@ const MovieCredits = () => {
   );
 };
 
-export default MovieCredits;
+export default MovieCast;

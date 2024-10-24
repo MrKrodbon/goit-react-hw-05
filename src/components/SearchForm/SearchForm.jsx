@@ -1,15 +1,11 @@
-import React, { useState } from "react";
 import css from "./SearchForm.module.css";
 
-import { searchMovie } from "../../api/movies-api";
-
-const SearchForm = () => {
+const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
-
+    setSearchParams({ query: form.elements.search.value });
     form.reset();
-    return form.elements.search.value;
   };
 
   return (

@@ -1,9 +1,7 @@
 import css from "./App.module.css";
 
 import { Route, Routes } from "react-router-dom";
-import { lazy, Suspense, useEffect, useState } from "react";
-
-import { getTrends } from "./api/movies-api";
+import { lazy, Suspense } from "react";
 
 const Navigation = lazy(() => import("./components/Navigation/Navigation"));
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
@@ -15,20 +13,9 @@ const MoviesReviews = lazy(() =>
   import("./components/MovieReviews/MovieReviews")
 );
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
-const MovieCredits = lazy(() =>
-  import("./components/MovieCredits/MovieCredits")
-);
+const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
 
 function App() {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const movieData = await getTrends();
-      setMovies(movieData);
-    })();
-  }, []);
-
   return (
     <div>
       <nav className={css.nav}>
@@ -36,13 +23,10 @@ function App() {
       </nav>
       <Suspense fallback={<div>Loading page...</div>}>
         <Routes>
-          <Route path="/" element={<HomePage moviesList={movies} />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
           <Route path="/movies" element={<MoviesPage />}></Route>
-          <Route
-            path="/movies/:movieId"
-            element={<MovieDetalsPage movieDetails={movies} />}
-          >
-            <Route path="cast" element={<MovieCredits />} />
+          <Route path="/movies/:movieId" element={<MovieDetalsPage />}>
+            <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MoviesReviews />} />
           </Route>
           <Route path="*" element={<NotFoundPage />}></Route>
