@@ -19,7 +19,7 @@ const MovieCast = () => {
         throw new Error("Error of search actors");
       }
     })();
-  }, []);
+  }, [movieId]);
 
   return (
     <div>

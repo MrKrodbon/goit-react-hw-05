@@ -1,13 +1,15 @@
 import { useState } from "react";
 
 import css from "./MovieList.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { POSTER_PATH, DEFAULT_IMG } from "../../constants/constants.js";
 
 const MovieList = ({ moviesList }) => {
   const [hoveredMovieId, sethoveredMovieId] = useState(null);
+  const location = useLocation();
   let timeoutId;
+  console.log(location);
 
   const onMouseEnterHandle = (id) => {
     clearTimeout(timeoutId);
@@ -26,7 +28,7 @@ const MovieList = ({ moviesList }) => {
       <ul className={css.ul}>
         {moviesList.map((movie) => (
           <li key={movie.id} className={css.li}>
-            <Link to={`/movies/${movie.id}`} key={movie.id}>
+            <Link to={`/movies/${movie.id}`} key={movie.id} state={location}>
               <div
                 className={css.imageContainer}
                 onMouseEnter={() => onMouseEnterHandle(movie.id)}
