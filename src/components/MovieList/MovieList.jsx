@@ -9,7 +9,6 @@ const MovieList = ({ moviesList }) => {
   const [hoveredMovieId, sethoveredMovieId] = useState(null);
   const location = useLocation();
   let timeoutId;
-  console.log(location);
 
   const onMouseEnterHandle = (id) => {
     clearTimeout(timeoutId);
