@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import SearchForm from "../../components/SearchForm/SearchForm";
 
 import css from "./MoviesPage.module.css";
-import Movie from "../../components/Movie/Movie";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import { searchMovie } from "../../api/movies-api";
+import MovieList from "../../components/MovieList/MovieList";
 
 const MoviesPage = () => {
   const [movieList, setMovieList] = useState([]);
@@ -36,17 +36,7 @@ const MoviesPage = () => {
               </p>
             </li>
           ) : (
-            movieList.map((movie) => (
-              <Link
-                to={`/movies/${movie.id}`}
-                state={`/movies?${searchParams}`}
-                key={movie.id}
-              >
-                <li className={css.li}>
-                  <Movie movie={movie} />
-                </li>
-              </Link>
-            ))
+            <MovieList moviesList={movieList} />
           )}
         </ul>
       </div>

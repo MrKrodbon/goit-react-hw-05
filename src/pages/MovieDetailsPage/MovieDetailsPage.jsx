@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Link,
   Outlet,
@@ -17,6 +17,7 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
+  const locationRef = useRef(location.state);
 
   useEffect(() => {
     (async () => {
@@ -26,7 +27,7 @@ const MovieDetailsPage = () => {
   }, []);
 
   const goBackHandle = () => {
-    const backHref = location.state ?? "/";
+    const backHref = locationRef.current ?? "/";
 
     navigate(backHref);
   };
@@ -58,12 +59,12 @@ const MovieDetailsPage = () => {
         <h2 className={css.additionInfoTitle}>Addition information</h2>
         <ul className={css.ul}>
           <li className={css.li}>
-            <Link state={location.state} to="cast" className={css.link}>
+            <Link state={locationRef.current} to="cast" className={css.link}>
               cast
             </Link>
           </li>
           <li className={css.li}>
-            <Link state={location.state} to="reviews" className={css.link}>
+            <Link state={locationRef.current} to="reviews" className={css.link}>
               reviews
             </Link>
           </li>
