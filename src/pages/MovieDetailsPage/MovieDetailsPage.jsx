@@ -24,7 +24,7 @@ const MovieDetailsPage = () => {
       const response = await getMovieById(movieId);
       setMovie(response);
     })();
-  }, []);
+  }, [movieId]);
 
   const goBackHandle = () => {
     const backHref = locationRef.current ?? "/";
