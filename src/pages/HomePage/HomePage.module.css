@@ -12,7 +12,17 @@
 }
 
 .emptyMovieField {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50px;
+  width: 1000px;
+  padding: 20px;
 }

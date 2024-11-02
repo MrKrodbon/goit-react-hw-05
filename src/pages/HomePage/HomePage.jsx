@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { getTrends } from "../../api/movies-api";
 
 const HomePage = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -14,21 +14,23 @@ const HomePage = () => {
         const movieData = await getTrends();
         setMovies(movieData);
       } catch (error) {
-        setMovies([]);
-        throw new Error("Error of search top movies");
+        setMovies(null);
+        throw new Error(`An error occured ${error}`);
       }
     })();
   }, []);
 
   return (
     <div className={css.homePageWrapper}>
-      <p className={css.mainTitle}>
-        Millions of movies, shows and people. Explore now!
-      </p>
-      {movies.length !== 0 ? (
-        <MovieList moviesList={movies} />
+      {Array.isArray(movies) ? (
+        <>
+          <p className={css.mainTitle}>
+            Millions of movies, shows and people. Explore now!
+          </p>
+          <MovieList moviesList={movies} />
+        </>
       ) : (
-        <p className={css.emptyMovieField}>There is no top movies</p>
+        <p className={css.emptyMovieField}>There is no top movies for today</p>
       )}
     </div>
   );

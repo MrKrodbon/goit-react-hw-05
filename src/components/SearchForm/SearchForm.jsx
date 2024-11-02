@@ -4,7 +4,9 @@ const SearchForm = ({ setSearchParams }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
-    setSearchParams({ query: form.elements.search.value });
+    if (form.elements.search.value != "") {
+      setSearchParams({ query: form.elements.search.value.trim() });
+    }
     form.reset();
   };
 
