@@ -4,6 +4,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import { useEffect, useState } from "react";
 
 import { getTrends } from "../../api/movies-api";
+import { Loader } from "../../components/Loader/Loader";
 
 const HomePage = () => {
   const [movies, setMovies] = useState(null);
@@ -22,6 +23,7 @@ const HomePage = () => {
 
   return (
     <div className={css.homePageWrapper}>
+      
       {Array.isArray(movies) ? (
         <>
           <p className={css.mainTitle}>
