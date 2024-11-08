@@ -49,7 +49,7 @@ const MovieDetailsPage = () => {
         />
         <div className={css.descriptionWrapper}>
           <h2>{movie.original_title}</h2>
-          <p>Rating: {movie.vote_average}</p>
+          <p>Rating: {Math.round(movie.vote_average)}</p>
           <p>Overview: {movie.overview}</p>
           <p>Release Date: {movie.release_date}</p>
         </div>

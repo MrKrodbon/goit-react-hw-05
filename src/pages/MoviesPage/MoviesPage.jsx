@@ -23,24 +23,22 @@ const MoviesPage = () => {
   }, [queryParams]);
 
   return (
-    <>
+    <div className={css.searchWrapper}>
       <div className={css.searchField}>
         <SearchForm setSearchParams={setSearchParams} />
       </div>
-      <div className={css.moviesListWrapper}>
-        <ul className={css.ul}>
-          {movieList.length === 0 ? (
-            <li>
-              <p className={css.motivationContent}>
-                Cool movies are waiting for you!
-              </p>
-            </li>
-          ) : (
-            <MovieList moviesList={movieList} />
-          )}
-        </ul>
-      </div>
-    </>
+      <ul className={css.ul}>
+        {movieList.length === 0 ? (
+          <li>
+            <p className={css.motivationContent}>
+              Cool movies are waiting for you!
+            </p>
+          </li>
+        ) : (
+          <MovieList moviesList={movieList} />
+        )}
+      </ul>
+    </div>
   );
 };
 
